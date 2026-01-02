@@ -10,6 +10,17 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
+import { FaReact, FaNodeJs, FaDocker, FaJava, FaPython } from "react-icons/fa";
+
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiPostgresql,
+  SiKubernetes,
+  SiGo,
+  SiCplusplus,
+} from "react-icons/si";
+
 const BLUR_FADE_DELAY = 0.04;
 
 const Icons = {
@@ -232,19 +243,36 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-xl font-bold">Skills</h2>
           </BlurFade>
-          <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
-            <OrbitingCircles iconSize={10} speed={1}>
+          <div className="relative flex h-[700px] w-full flex-col items-center justify-center overflow-hidden">
+            {/* <OrbitingCircles iconSize={8} speed={1}>
               <Icons.whatsapp />
               <Icons.notion />
               <Icons.openai />
               <Icons.googleDrive />
               <Icons.whatsapp />
             </OrbitingCircles>
-            <OrbitingCircles iconSize={10} radius={100} reverse speed={1}>
+            <OrbitingCircles iconSize={8} radius={100} reverse speed={1}>
               <Icons.whatsapp />
               <Icons.notion />
               <Icons.openai />
               <Icons.googleDrive />
+            </OrbitingCircles> */}
+
+            <OrbitingCircles iconSize={10} speed={1}>
+              <FaReact color="#61DAFB" style={{fontSize:'94px'}} />
+              <SiNextdotjs color="#000000" style={{fontSize:'94px'}}/>
+              <SiTypescript color="#3178C6" style={{fontSize:'94px'}} />
+              <FaNodeJs color="#5FA04E" style={{fontSize:'94px'}} />
+              <FaDocker color="#2496ED" style={{fontSize:'94px'}}/>
+              
+            </OrbitingCircles>
+
+            <OrbitingCircles iconSize={5} radius={100} reverse speed={1}>
+              <SiPostgresql color="#4169E1" style={{fontSize:'64px'}} />
+              <SiKubernetes  style={{fontSize:'64px'}}/>
+              <FaJava  style={{fontSize:'64px'}}/>
+              <FaPython color="#3776AB" style={{fontSize:'64px'}} />
+              <SiCplusplus style={{fontSize:'64px'}}/>
             </OrbitingCircles>
           </div>
         </div>
