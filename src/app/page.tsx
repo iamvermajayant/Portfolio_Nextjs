@@ -5,13 +5,13 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { OrbitingCircles } from "@/components/ui/orbiting-circles";
-import { DATA } from "@/data/resume";
+import { DATA, JOURNEY_MOMENTS } from "@/data/resume";
+import { JourneyGallery } from "@/components/journey-gallery";
+import { OrbitRing } from "@/components/planet-orbit";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
 import { FaReact, FaNodeJs, FaDocker, FaJava, FaPython } from "react-icons/fa";
-
 import {
   SiNextdotjs,
   SiTypescript,
@@ -156,7 +156,7 @@ export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
-        <div className="mx-auto w-full max-w-2xl space-y-8">
+        <div className="mx-auto w-full  space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1 space-y-1.5">
               <BlurFadeText
@@ -243,37 +243,42 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <h2 className="text-xl font-bold">Skills</h2>
           </BlurFade>
-          <div className="relative flex h-[700px] w-full flex-col items-center justify-center overflow-hidden">
-            {/* <OrbitingCircles iconSize={8} speed={1}>
-              <Icons.whatsapp />
-              <Icons.notion />
-              <Icons.openai />
-              <Icons.googleDrive />
-              <Icons.whatsapp />
-            </OrbitingCircles>
-            <OrbitingCircles iconSize={8} radius={100} reverse speed={1}>
-              <Icons.whatsapp />
-              <Icons.notion />
-              <Icons.openai />
-              <Icons.googleDrive />
-            </OrbitingCircles> */}
+          <div className="relative flex h-[620px] w-full flex-col items-center justify-center overflow-visible">
 
-            <OrbitingCircles iconSize={10} speed={1}>
-              <FaReact color="#61DAFB" style={{fontSize:'94px'}} />
-              <SiNextdotjs color="#000000" style={{fontSize:'94px'}}/>
-              <SiTypescript color="#3178C6" style={{fontSize:'94px'}} />
-              <FaNodeJs color="#5FA04E" style={{fontSize:'94px'}} />
-              <FaDocker color="#2496ED" style={{fontSize:'94px'}}/>
-              
-            </OrbitingCircles>
+            {/* Sun / core */}
+            <div style={{
+              width: 72, height: 72, borderRadius: "50%", position: "relative", zIndex: 10,
+              background: "radial-gradient(circle at 35% 35%, #fff7a0 0%, #fbbf24 40%, #b45309 100%)",
+              boxShadow: "0 0 40px 12px rgba(251,191,36,0.45), inset -4px -4px 10px rgba(0,0,0,0.3), inset 3px 3px 8px rgba(255,255,255,0.3)",
+            }} />
 
-            <OrbitingCircles iconSize={5} radius={100} reverse speed={1}>
-              <SiPostgresql color="#4169E1" style={{fontSize:'64px'}} />
-              <SiKubernetes  style={{fontSize:'64px'}}/>
-              <FaJava  style={{fontSize:'64px'}}/>
-              <FaPython color="#3776AB" style={{fontSize:'64px'}} />
-              <SiCplusplus style={{fontSize:'64px'}}/>
-            </OrbitingCircles>
+            {/* Inner orbit — 5 planets */}
+            <OrbitRing
+              radius={130}
+              duration={18}
+              planets={[
+                { icon: <FaReact color="#61DAFB" />, color: "#61DAFB", label: "React", size: 50 },
+                { icon: <SiNextdotjs color="#fff" />, color: "#888888", label: "Next.js", size: 46 },
+                { icon: <SiTypescript color="#fff" />, color: "#3178C6", label: "TypeScript", size: 46 },
+                { icon: <FaNodeJs color="#fff" />, color: "#5FA04E", label: "Node.js", size: 48 },
+                { icon: <FaDocker color="#fff" />, color: "#2496ED", label: "Docker", size: 48 },
+              ]}
+            />
+
+            {/* Outer orbit — 5 planets, reverse */}
+            <OrbitRing
+              radius={230}
+              duration={30}
+              reverse
+              planets={[
+                { icon: <SiPostgresql color="#fff" />, color: "#4169E1", label: "Postgres", size: 44 },
+                { icon: <SiKubernetes color="#fff" />, color: "#326CE5", label: "Kubernetes", size: 44 },
+                { icon: <FaJava color="#fff" />, color: "#E76F00", label: "Java", size: 44 },
+                { icon: <FaPython color="#fff" />, color: "#3776AB", label: "Python", size: 44 },
+                { icon: <SiCplusplus color="#fff" />, color: "#00599C", label: "C++", size: 44 },
+              ]}
+            />
+
           </div>
         </div>
       </section>
@@ -360,6 +365,11 @@ export default function Page() {
             </ul>
           </BlurFade>
         </div>
+      </section>
+      <section id="journey" className="w-full py-12">
+        <BlurFade delay={BLUR_FADE_DELAY * 15.5}>
+          <JourneyGallery moments={JOURNEY_MOMENTS} />
+        </BlurFade>
       </section>
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
