@@ -1,5 +1,6 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
+import type { JourneyMoment } from "@/components/journey-gallery";
 
 export const DATA = {
   name: "Jayant Verma",
@@ -611,3 +612,100 @@ export const DATA = {
     },
   ],
 } as const;
+
+export const JOURNEY_MOMENTS: JourneyMoment[] = [
+  {
+    id: "capgemini-work",
+    title: "Fullstack Engineer @ Capgemini",
+    description:
+      "Architected microservices with Docker & Kubernetes, built production-grade TypeScript SDKs, and shipped features used by thousands.",
+    image: "/Capgemini.png",
+    category: "work",
+    year: "2023",
+    size: "large",
+  },
+  {
+    id: "lpu-education",
+    title: "B.Tech CSE — LPU",
+    description:
+      "Four years of late-night debugging sessions, algorithms, and friendships that shaped who I am as an engineer.",
+    image: "/LPU.jpg",
+    category: "education",
+    year: "2019",
+    size: "medium",
+  },
+  {
+    id: "hack-the-north",
+    title: "Hack The North",
+    description:
+      "Built a campus-wide real-time events app in 36 hours. Sleep-deprived but proud.",
+    image:
+      "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/hack-the-north.png",
+    category: "hackathon",
+    year: "2018",
+    size: "small",
+  },
+  {
+    id: "global-ai-win",
+    title: "1st Place — Global AI Hackathon",
+    description:
+      "Won first place building a real-time emotion-based game difficulty engine using OpenCV and TensorFlow.",
+    image:
+      "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/global-ai-hackathon.jpg",
+    category: "achievement",
+    year: "2017",
+    size: "medium",
+  },
+  {
+    id: "buildspace",
+    title: "Buildspace SF1 Cohort",
+    description:
+      "One of the first in-person buildspace cohorts. Surrounded by builders, dreamers, and future founders.",
+    image: "/buildspace.jpg",
+    category: "personal",
+    year: "2022",
+    size: "small",
+  },
+  {
+    id: "waterloo",
+    title: "University of Waterloo",
+    description:
+      "Pursued a BCS degree, interned at top tech companies, and competed in 21+ hackathons.",
+    image: "/waterloo.png",
+    category: "education",
+    year: "2016",
+    size: "small",
+  },
+  {
+    id: "eth-waterloo",
+    title: "ETH Waterloo — Blockchain",
+    description:
+      "Built a trustless prescription system for doctors and pharmacists on Ethereum.",
+    image:
+      "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/eth-waterloo.png",
+    category: "hackathon",
+    year: "2017",
+    size: "medium",
+  },
+  {
+    id: "starthacks-win",
+    title: "1st Place — StartHacks",
+    description:
+      "Recipic: snap ingredients, get recipes. Won best pitch and best hack.",
+    image:
+      "https://pub-83c5db439b40468498f97946200806f7.r2.dev/hackline/starthacks.png",
+    category: "achievement",
+    year: "2017",
+    size: "small",
+  },
+  {
+    id: "me-portrait",
+    title: "The Journey Continues",
+    description:
+      "Every line of code, every late night, every shipped product — this is what it's all been building toward.",
+    image: "/Jayant.png",
+    category: "personal",
+    year: "2024",
+    size: "large",
+  },
+];

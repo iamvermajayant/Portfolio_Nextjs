@@ -5,21 +5,11 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { OrbitingCircles } from "@/components/ui/orbiting-circles";
-import { DATA } from "@/data/resume";
+import { DATA, JOURNEY_MOMENTS } from "@/data/resume";
+import { JourneyGallery } from "@/components/journey-gallery";
+import SkillsGamified from "@/components/skills-gamified";
 import Link from "next/link";
 import Markdown from "react-markdown";
-
-import { FaReact, FaNodeJs, FaDocker, FaJava, FaPython } from "react-icons/fa";
-
-import {
-  SiNextdotjs,
-  SiTypescript,
-  SiPostgresql,
-  SiKubernetes,
-  SiGo,
-  SiCplusplus,
-} from "react-icons/si";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -156,7 +146,7 @@ export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="hero">
-        <div className="mx-auto w-full max-w-2xl space-y-8">
+        <div className="mx-auto w-full  space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1 space-y-1.5">
               <BlurFadeText
@@ -239,43 +229,7 @@ export default function Page() {
         </div>
       </section>
       <section id="skills">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Skills</h2>
-          </BlurFade>
-          <div className="relative flex h-[700px] w-full flex-col items-center justify-center overflow-hidden">
-            {/* <OrbitingCircles iconSize={8} speed={1}>
-              <Icons.whatsapp />
-              <Icons.notion />
-              <Icons.openai />
-              <Icons.googleDrive />
-              <Icons.whatsapp />
-            </OrbitingCircles>
-            <OrbitingCircles iconSize={8} radius={100} reverse speed={1}>
-              <Icons.whatsapp />
-              <Icons.notion />
-              <Icons.openai />
-              <Icons.googleDrive />
-            </OrbitingCircles> */}
-
-            <OrbitingCircles iconSize={10} speed={1}>
-              <FaReact color="#61DAFB" style={{fontSize:'94px'}} />
-              <SiNextdotjs color="#000000" style={{fontSize:'94px'}}/>
-              <SiTypescript color="#3178C6" style={{fontSize:'94px'}} />
-              <FaNodeJs color="#5FA04E" style={{fontSize:'94px'}} />
-              <FaDocker color="#2496ED" style={{fontSize:'94px'}}/>
-              
-            </OrbitingCircles>
-
-            <OrbitingCircles iconSize={5} radius={100} reverse speed={1}>
-              <SiPostgresql color="#4169E1" style={{fontSize:'64px'}} />
-              <SiKubernetes  style={{fontSize:'64px'}}/>
-              <FaJava  style={{fontSize:'64px'}}/>
-              <FaPython color="#3776AB" style={{fontSize:'64px'}} />
-              <SiCplusplus style={{fontSize:'64px'}}/>
-            </OrbitingCircles>
-          </div>
-        </div>
+        <SkillsGamified />
       </section>
       <section id="projects">
         <div className="space-y-12 w-full py-12">
@@ -360,6 +314,11 @@ export default function Page() {
             </ul>
           </BlurFade>
         </div>
+      </section>
+      <section id="journey" className="w-full py-12">
+        <BlurFade delay={BLUR_FADE_DELAY * 15.5}>
+          <JourneyGallery moments={JOURNEY_MOMENTS} />
+        </BlurFade>
       </section>
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
