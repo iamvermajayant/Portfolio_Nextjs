@@ -7,19 +7,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA, JOURNEY_MOMENTS } from "@/data/resume";
 import { JourneyGallery } from "@/components/journey-gallery";
-import { OrbitRing } from "@/components/planet-orbit";
+import SkillsGamified from "@/components/skills-gamified";
 import Link from "next/link";
 import Markdown from "react-markdown";
-
-import { FaReact, FaNodeJs, FaDocker, FaJava, FaPython } from "react-icons/fa";
-import {
-  SiNextdotjs,
-  SiTypescript,
-  SiPostgresql,
-  SiKubernetes,
-  SiGo,
-  SiCplusplus,
-} from "react-icons/si";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -239,48 +229,7 @@ export default function Page() {
         </div>
       </section>
       <section id="skills">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Skills</h2>
-          </BlurFade>
-          <div className="relative flex h-[620px] w-full flex-col items-center justify-center overflow-visible">
-
-            {/* Sun / core */}
-            <div style={{
-              width: 72, height: 72, borderRadius: "50%", position: "relative", zIndex: 10,
-              background: "radial-gradient(circle at 35% 35%, #fff7a0 0%, #fbbf24 40%, #b45309 100%)",
-              boxShadow: "0 0 40px 12px rgba(251,191,36,0.45), inset -4px -4px 10px rgba(0,0,0,0.3), inset 3px 3px 8px rgba(255,255,255,0.3)",
-            }} />
-
-            {/* Inner orbit — 5 planets */}
-            <OrbitRing
-              radius={130}
-              duration={18}
-              planets={[
-                { icon: <FaReact color="#61DAFB" />, color: "#61DAFB", label: "React", size: 50 },
-                { icon: <SiNextdotjs color="#fff" />, color: "#888888", label: "Next.js", size: 46 },
-                { icon: <SiTypescript color="#fff" />, color: "#3178C6", label: "TypeScript", size: 46 },
-                { icon: <FaNodeJs color="#fff" />, color: "#5FA04E", label: "Node.js", size: 48 },
-                { icon: <FaDocker color="#fff" />, color: "#2496ED", label: "Docker", size: 48 },
-              ]}
-            />
-
-            {/* Outer orbit — 5 planets, reverse */}
-            <OrbitRing
-              radius={230}
-              duration={30}
-              reverse
-              planets={[
-                { icon: <SiPostgresql color="#fff" />, color: "#4169E1", label: "Postgres", size: 44 },
-                { icon: <SiKubernetes color="#fff" />, color: "#326CE5", label: "Kubernetes", size: 44 },
-                { icon: <FaJava color="#fff" />, color: "#E76F00", label: "Java", size: 44 },
-                { icon: <FaPython color="#fff" />, color: "#3776AB", label: "Python", size: 44 },
-                { icon: <SiCplusplus color="#fff" />, color: "#00599C", label: "C++", size: 44 },
-              ]}
-            />
-
-          </div>
-        </div>
+        <SkillsGamified />
       </section>
       <section id="projects">
         <div className="space-y-12 w-full py-12">
